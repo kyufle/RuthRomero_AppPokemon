@@ -43,12 +43,12 @@
                <children>
                   <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
                      <children>
-                        <Button fx:id="buttonPrevious" mnemonicParsing="false" onAction="#previous" style="-fx-base: orange;" text="Previous" />
+                        <Button fx:id="btnAnterior" mnemonicParsing="false" onAction="#previous" style="-fx-base: orange;" text="Previous" />
                      </children>
                   </VBox>
                   <VBox alignment="CENTER_RIGHT" prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
                      <children>
-                        <Button fx:id="buttonNext" mnemonicParsing="false" onAction="#next" style="-fx-base: orange;" text="Next" />
+                        <Button fx:id="btnSiguiente" mnemonicParsing="false" onAction="#next" style="-fx-base: orange;" text="Next" />
                      </children>
                   </VBox>
                </children>
@@ -70,7 +70,7 @@
                                     <Insets />
                                  </HBox.margin>
                               </Label>
-                              <Label fx:id="labelAbility" minWidth="100.0" text="AbilityValue" />
+                              <Label fx:id="lblHabilidad" minWidth="100.0" text="AbilityValue" />
                            </children>
                         </HBox>
                         <HBox alignment="CENTER_RIGHT">
@@ -80,7 +80,7 @@
                                     <Insets right="10.0" />
                                  </HBox.margin>
                               </Label>
-                              <Label fx:id="labelCategory" minWidth="100.0" text="CategoryValue">
+                              <Label fx:id="lblCategoria" minWidth="100.0" text="CategoryValue">
                                  <HBox.margin>
                                     <Insets />
                                  </HBox.margin>
@@ -98,7 +98,7 @@
                                     <Insets right="10.0" />
                                  </HBox.margin>
                               </Label>
-                              <Label fx:id="labelName" text="# NameValue" />
+                              <Label fx:id="lblNombre" text="# NameValue" />
                            </children>
                         </HBox>
                         <ImageView fx:id="imgPokemon" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
@@ -113,7 +113,7 @@
                                     <Insets right="10.0" />
                                  </HBox.margin>
                               </Label>
-                              <Label fx:id="labelType" text="TypeValue" />
+                              <Label fx:id="lblTipo" text="TypeValue" />
                            </children>
                         </HBox>
                      </children>
@@ -127,7 +127,7 @@
                                     <Insets right="10.0" />
                                  </HBox.margin>
                               </Label>
-                              <Label fx:id="labelHeight" text="HeightValue" />
+                              <Label fx:id="lblAltura" text="HeightValue" />
                            </children>
                         </HBox>
                         <HBox VBox.vgrow="NEVER">
@@ -137,7 +137,7 @@
                                     <Insets right="10.0" />
                                  </HBox.margin>
                               </Label>
-                              <Label fx:id="labelWeigth" text="WeigthValue" />
+                              <Label fx:id="lblPeso" text="WeigthValue" />
                            </children>
                         </HBox>
                      </children>

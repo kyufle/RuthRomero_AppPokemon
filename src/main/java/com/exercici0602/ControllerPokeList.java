@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.ResourceBundle;
 
+import com.utils.UtilsViews;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -63,6 +65,8 @@ public class ControllerPokeList implements Initializable {
 
     @FXML
     private void addPokemon(ActionEvent event) {
-        System.out.println("Botón 'Add' presionado");
+        ControllerPokeForm formCtrl = (ControllerPokeForm) UtilsViews.getController("ViewForm");
+        formCtrl.setStatus(ControllerPokeForm.STATUS_ADD, -1);    
+        UtilsViews.setViewAnimating("ViewForm");
     }
 }

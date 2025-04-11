@@ -54,7 +54,7 @@
                                     <Insets right="10.0" />
                                  </padding>
                               </Label>
-                              <TextField fx:id="fieldName" />
+                              <TextField fx:id="inputNombre" />
                            </children>
                            <VBox.margin>
                               <Insets bottom="10.0" />
@@ -70,7 +70,7 @@
                                     <Insets right="10.0" />
                                  </padding>
                               </Label>
-                              <TextField fx:id="fieldAbility" />
+                              <TextField fx:id="inputHabilidad" />
                            </children>
                            <VBox.margin>
                               <Insets bottom="5.0" />
@@ -86,7 +86,7 @@
                                     <Insets right="10.0" />
                                  </padding>
                               </Label>
-                              <TextField fx:id="fieldCategory" />
+                              <TextField fx:id="inputCategoria" />
                            </children>
                            <VBox.margin>
                               <Insets bottom="10.0" />
@@ -118,7 +118,7 @@
                                     <Insets right="10.0" />
                                  </padding>
                               </Label>
-                              <TextField fx:id="fieldHeight" />
+                              <TextField fx:id="inputAltura" />
                            </children>
                            <VBox.margin>
                               <Insets bottom="10.0" />
@@ -134,7 +134,7 @@
                                     <Insets right="10.0" />
                                  </padding>
                               </Label>
-                              <TextField fx:id="fieldWeight" />
+                              <TextField fx:id="inputPeso" />
                            </children>
                            <VBox.margin>
                               <Insets bottom="10.0" />
@@ -163,7 +163,7 @@
                   <Button fx:id="buttonUpdate" mnemonicParsing="false" onAction="#update" style="-fx-base: #0077BB;" text="Update" />
                </children>
             </HBox>
-            <Label fx:id="labelSaved" text="Data properly saved ..." />
+            <Label fx:id="labelGuardado" text="Data properly saved ..." />
          </children>
       </VBox>
    </children>

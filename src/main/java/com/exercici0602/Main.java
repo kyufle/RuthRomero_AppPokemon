@@ -1,6 +1,6 @@
 package com.exercici0602;
 
-import com.utils.*;
+import com.utils.UtilsViews;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -23,8 +23,8 @@ public class Main extends Application {
         // Carrega la vista inicial des del fitxer FXML
         UtilsViews.parentContainer.setStyle("-fx-font: 14 arial;");
         UtilsViews.addView(getClass(), "ViewTaula", "/assets/viewPokeList.fxml");
-        UtilsViews.addView(getClass(), "ViewInici", "/assets/viewPokeCard.fxml");
-        UtilsViews.addView(getClass(), "ViewTaula", "/assets/viewPokeForm.fxml");
+        UtilsViews.addView(getClass(), "ViewCard", "/assets/viewPokeCard.fxml");
+        UtilsViews.addView(getClass(), "ViewForm", "/assets/viewPokeForm.fxml");
 
         Scene scene = new Scene(UtilsViews.parentContainer);
 

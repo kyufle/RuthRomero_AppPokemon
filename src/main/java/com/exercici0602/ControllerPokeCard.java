@@ -1,5 +1,6 @@
 package com.exercici0602;
 
+import java.io.File;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -40,7 +41,7 @@ public class ControllerPokeCard implements Initializable {
     private int numeroSiguiente = -1;
 
     @FXML
-    private ImageView imgVolver;
+    private ImageView imgBackArrow;
     @FXML
     private ImageView imgPokemon;
 
@@ -49,7 +50,7 @@ public class ControllerPokeCard implements Initializable {
         try {
             URL icono = getClass().getResource("/assets/images0601/arrow-back.png");
             if (icono != null) {
-                imgVolver.setImage(new Image(icono.toExternalForm()));
+                imgBackArrow.setImage(new Image(icono.toExternalForm()));
             }
         } catch (Exception e) {
             System.err.println("Error loading image");
@@ -62,7 +63,7 @@ public class ControllerPokeCard implements Initializable {
         AppData baseDatos = AppData.getInstance();
 
         ArrayList<HashMap<String, Object>> resultado = baseDatos.query(
-                String.format("SELECT * FROM pokemons WHERE number = %d;", actualNumber)
+                String.format("SELECT * FROM pokemons WHERE number = %d;", this.actualNumber)
         );
 
         if (!resultado.isEmpty()) {
@@ -77,7 +78,9 @@ public class ControllerPokeCard implements Initializable {
 
             try {
                 String rutaImagen = (String) poke.get("image");
-                imgPokemon.setImage(new Image("file:" + rutaImagen));
+                File file = new File("./data/pokeImages/" + rutaImagen);
+                Image image = new Image(file.toURI().toString());
+                imgPokemon.setImage(image);
             } catch (Exception e) {
                 System.err.println("No se pudo cargar la imagen del Pokémon: " + poke.get("image"));
                 e.printStackTrace();
@@ -117,7 +120,7 @@ public class ControllerPokeCard implements Initializable {
     @FXML
     public void editPokemon(ActionEvent evt) {
         ControllerPokeForm formCtrl = (ControllerPokeForm) UtilsViews.getController("ViewForm");
-        formCtrl.setStatus(ControllerPokeForm.STATUS_EDIT, actualNumber);
+        formCtrl.setStatus(ControllerPokeForm.STATUS_EDIT, this.actualNumber);
         UtilsViews.setViewAnimating("ViewForm");
     }
 
@@ -137,6 +140,8 @@ public class ControllerPokeCard implements Initializable {
 
     @FXML
     public void goBack(MouseEvent evt) {
-        UtilsViews.setViewAnimating("ViewList");
+        ControllerPokeList ctrl = (ControllerPokeList) UtilsViews.getController("ViewTaula");
+        ctrl.loadList();
+        UtilsViews.setViewAnimating("ViewTaula");
     }
 }

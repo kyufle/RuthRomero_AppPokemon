@@ -36,44 +36,32 @@ public class ControllerPokeForm implements Initializable {
     private String rutaImagen = "";
 
     @FXML
-    private Label etiquetaGuardado = new Label();
-
+    private Label labelGuardado;
     @FXML
-    private TextField inputNombre = new TextField();
-
+    private TextField inputNombre;
     @FXML
-    private TextField inputHabilidad = new TextField();
-
+    private TextField inputHabilidad;
     @FXML
-    private TextField inputCategoria = new TextField();
-
+    private TextField inputCategoria;
     @FXML
-    private ChoiceBox<String> desplegableTipo = new ChoiceBox<String>();
-    final String[] tiposDisponibles = {"Planta/Verí", "Foc", "Foc/Volador", "Aigua", "Insecte", "Insecte/Volador", "Insecte/Verí", "Elèctric"};
-
+    private ChoiceBox<String> choiceType;
+    final String[] choiboxChoice = {"Planta/Verí", "Foc", "Foc/Volador", "Aigua", "Insecte", "Insecte/Volador", "Insecte/Verí", "Elèctric"};
     @FXML
-    private TextField inputAltura = new TextField();
-
+    private TextField inputAltura;
     @FXML
-    private TextField inputPeso = new TextField();
-
+    private TextField inputPeso;
     @FXML
     private ImageView imgBackArrow;
-
     @FXML
-    private ImageView imagenPokemon;
-
+    private ImageView imgPokemon;
     @FXML
-    private Button botonEliminar = new Button();
-
+    private Button buttonDelete;
     @FXML
-    private Button botonCrear = new Button();
-
+    private Button buttonAdd;
     @FXML
-    private Button botonActualizar = new Button();
-
+    private Button buttonUpdate;
     @FXML
-    private Button botonSeleccionarImagen = new Button();
+    private Button buttonSelectFile;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -91,30 +79,30 @@ public class ControllerPokeForm implements Initializable {
         this.modoActual = modo;
         this.idPokemon = numero;
 
-        desplegableTipo.getItems().clear();
-        desplegableTipo.getItems().addAll(Arrays.asList(tiposDisponibles));
+        choiceType.getItems().clear();
+        choiceType.getItems().addAll(Arrays.asList(choiboxChoice));
 
-        etiquetaGuardado.setVisible(false);
+        labelGuardado.setVisible(false);
 
         if (modoActual.equalsIgnoreCase(STATUS_ADD)) {
-            botonEliminar.setVisible(false);
-            botonCrear.setVisible(true);
-            botonActualizar.setVisible(false);
+            buttonDelete.setVisible(false);
+            buttonAdd.setVisible(true);
+            buttonUpdate.setVisible(false);
 
             inputNombre.clear();
             inputHabilidad.clear();
             inputCategoria.clear();
-            desplegableTipo.getSelectionModel().select(tiposDisponibles[0]);
+            choiceType.getSelectionModel().select(choiboxChoice[0]);
             inputAltura.clear();
             inputPeso.clear();
-            imagenPokemon.setImage(null);
-            rutaImagen = "";
+            imgPokemon.setImage(null);
+            this.rutaImagen = "";
         }
 
         if (modoActual.equalsIgnoreCase(STATUS_EDIT)) {
-            botonEliminar.setVisible(true);
-            botonCrear.setVisible(false);
-            botonActualizar.setVisible(true);
+            buttonDelete.setVisible(true);
+            buttonAdd.setVisible(false);
+            buttonUpdate.setVisible(true);
 
             AppData base = AppData.getInstance();
             String consulta = String.format("SELECT * FROM pokemons WHERE number = '%d';", this.idPokemon);
@@ -125,15 +113,15 @@ public class ControllerPokeForm implements Initializable {
                 inputNombre.setText((String) datos.get("name"));
                 inputHabilidad.setText((String) datos.get("ability"));
                 inputCategoria.setText((String) datos.get("category"));
-                desplegableTipo.getSelectionModel().select((String) datos.get("type"));
+                choiceType.getSelectionModel().select((String) datos.get("type"));
                 inputAltura.setText((String) datos.get("height"));
                 inputPeso.setText((String) datos.get("weight"));
 
-                rutaImagen = (String) datos.get("image");
+                this.rutaImagen = (String) datos.get("image");
                 try {
-                    File archivo = new File(rutaImagen);
+                    File archivo = new File("data/pokeImages/" + rutaImagen);
                     Image imagen = new Image(archivo.toURI().toString());
-                    imagenPokemon.setImage(imagen);
+                    imgPokemon.setImage(imagen);
                 } catch (NullPointerException e) {
                     System.err.println("Error al mostrar imagen: " + rutaImagen);
                     e.printStackTrace();
@@ -145,9 +133,9 @@ public class ControllerPokeForm implements Initializable {
     @FXML
     public void goBack(MouseEvent evento) {
         if (modoActual.equalsIgnoreCase(STATUS_ADD)) {
-            ControllerPokeList ctrl = (ControllerPokeList) UtilsViews.getController("ViewList");
+            ControllerPokeList ctrl = (ControllerPokeList) UtilsViews.getController("ViewTaula");
             ctrl.loadList();
-            UtilsViews.setViewAnimating("ViewList");
+            UtilsViews.setViewAnimating("ViewTaula");
         }
         if (modoActual.equalsIgnoreCase(STATUS_EDIT)) {
             ControllerPokeCard ctrl = (ControllerPokeCard) UtilsViews.getController("ViewCard");
@@ -158,7 +146,7 @@ public class ControllerPokeForm implements Initializable {
 
     @FXML
     public void selectFile(ActionEvent evento) {
-        Stage ventana = (Stage) botonSeleccionarImagen.getScene().getWindow();
+        Stage ventana = (Stage) buttonSelectFile.getScene().getWindow();
         FileChooser selector = new FileChooser();
         selector.setInitialDirectory(new File(System.getProperty("user.dir")));
         selector.getExtensionFilters().add(new FileChooser.ExtensionFilter("Imágenes", "*.png", "*.jpg", "*.jpeg"));
@@ -169,11 +157,11 @@ public class ControllerPokeForm implements Initializable {
             File archivoDestino = new File(destino);
             try {
                 Files.copy(elegido.toPath(), archivoDestino.toPath(), StandardCopyOption.REPLACE_EXISTING);
-                rutaImagen = "data/pokeImages/" + nombreArchivo;
+                rutaImagen = nombreArchivo;
 
-                File imagenFile = new File(rutaImagen);
+                File imagenFile = new File("data/pokeImages/" + rutaImagen);
                 Image imagen = new Image(imagenFile.toURI().toString());
-                imagenPokemon.setImage(imagen);
+                imgPokemon.setImage(imagen);
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -183,7 +171,7 @@ public class ControllerPokeForm implements Initializable {
     @FXML
     public void add(ActionEvent evento) {
         String nombre = inputNombre.getText();
-        String tipo = desplegableTipo.getSelectionModel().getSelectedItem();
+        String tipo = choiceType.getSelectionModel().getSelectedItem();
         String habilidad = inputHabilidad.getText();
         String altura = inputAltura.getText();
         String peso = inputPeso.getText();
@@ -195,29 +183,29 @@ public class ControllerPokeForm implements Initializable {
         db.update(sql);
 
         setStatus(STATUS_ADD, -1);
-        etiquetaGuardado.setVisible(true);
+        labelGuardado.setVisible(true);
         setTimeout(2500, () -> {
-            etiquetaGuardado.setVisible(false);
+            labelGuardado.setVisible(false);
         });
     }
 
     @FXML
     public void update(ActionEvent evento) {
         String nombre = inputNombre.getText();
-        String tipo = desplegableTipo.getSelectionModel().getSelectedItem();
+        String tipo = choiceType.getSelectionModel().getSelectedItem();
         String habilidad = inputHabilidad.getText();
         String altura = inputAltura.getText();
         String peso = inputPeso.getText();
         String categoria = inputCategoria.getText();
-        String imagen = rutaImagen;
+        String imagen = this.rutaImagen;
 
         AppData db = AppData.getInstance();
         String sql = String.format("UPDATE pokemons SET name = '%s', type = '%s', ability = '%s', height = '%s', weight = '%s', category = '%s', image = '%s' WHERE number = '%d'", nombre, tipo, habilidad, altura, peso, categoria, imagen, idPokemon);
         db.update(sql);
 
-        etiquetaGuardado.setVisible(true);
+        labelGuardado.setVisible(true);
         setTimeout(2500, () -> {
-            etiquetaGuardado.setVisible(false);
+            labelGuardado.setVisible(false);
         });
     }
 
@@ -240,9 +228,9 @@ public class ControllerPokeForm implements Initializable {
         db.update(sql);
 
         setStatus(STATUS_ADD, -1);
-        etiquetaGuardado.setVisible(true);
+        labelGuardado.setVisible(true);
         setTimeout(2500, () -> {
-            etiquetaGuardado.setVisible(false);
+            labelGuardado.setVisible(false);
         });
     }
 }
