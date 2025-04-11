@@ -3,6 +3,8 @@ package com.exercici0602;
 import java.awt.event.MouseEvent;
 import java.io.File;
 
+import com.utils.UtilsViews;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -47,7 +49,9 @@ public class ControllerPokeItem {
     //en el cas de que li donin click a un pokemon ens emportarà fins aquell pokemón.
     @FXML
     public void toViewCard(MouseEvent event) {
-        
+        ControllerPokeCard ctrl = (ControllerPokeCard) UtilsViews.getController("ViewCard");
+        ctrl.loadPokemon(this.id);
+        UtilsViews.setViewAnimating("ViewCard");
     }
 
 }

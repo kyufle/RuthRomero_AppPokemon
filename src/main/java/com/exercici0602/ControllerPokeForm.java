@@ -11,5 +11,23 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 public class ControllerPokeForm {
+    
 
+    public void selectFile(){
+
+    }
+
+    public void add(){
+
+    }
+    public void update(){
+
+    }
+    public void delete(){
+
+    }
+
+    public void goBack(){
+        
+    }
 }
