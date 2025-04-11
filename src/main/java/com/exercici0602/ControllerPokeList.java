@@ -55,7 +55,7 @@ public class ControllerPokeList implements Initializable {
             itemController.setId(id);
             itemController.setTitle(name);
             itemController.setSubtitle(type);
-            itemController.setImatge(imagePath);
+            itemController.setImatge("./data/pokeImages/"+imagePath);
 
             list.getChildren().add(itemTemplate);
         }

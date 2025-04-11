@@ -1,21 +1,20 @@
 package com.exercici0602;
 
-import com.utils.*;
-
 import java.net.URL;
-import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.ResourceBundle;
 
+import com.utils.UtilsViews;
+
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
 import javafx.scene.control.Button;
-import javafx.scene.image.ImageView;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.event.ActionEvent;
 
 public class ControllerPokeCard implements Initializable {
 
@@ -115,21 +114,21 @@ public class ControllerPokeCard implements Initializable {
     }
 
     @FXML
-    public void editar(ActionEvent evt) {
+    public void editPokemon(ActionEvent evt) {
         ControllerPokeForm formCtrl = (ControllerPokeForm) UtilsViews.getController("ViewForm");
         formCtrl.setStatus(ControllerPokeForm.STATUS_EDIT, actualNumber);
         UtilsViews.setViewAnimating("ViewForm");
     }
 
     @FXML
-    public void irAnterior(ActionEvent evt) {
+    public void previous(ActionEvent evt) {
         if (numeroAnterior != -1) {
             loadPokemon(numeroAnterior);
         }
     }
 
     @FXML
-    public void irSiguiente(ActionEvent evt) {
+    public void next(ActionEvent evt) {
         if (numeroSiguiente != -1) {
             loadPokemon(numeroSiguiente);
         }

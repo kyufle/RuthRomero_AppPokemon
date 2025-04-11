@@ -1,6 +1,5 @@
 package com.exercici0602;
 
-import java.awt.event.MouseEvent;
 import java.io.File;
 
 import com.utils.UtilsViews;
@@ -9,6 +8,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 
 
 public class ControllerPokeItem {
