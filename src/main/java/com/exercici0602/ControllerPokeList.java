@@ -12,4 +12,9 @@ import javafx.stage.Stage;
 
 public class ControllerPokeList {
 
+    
+    //per quan fem click al botó de afegir.
+    public void add(){
+
+    }
 }
