@@ -31,10 +31,6 @@ public class ControllerPokeCard implements Initializable {
     @FXML
     private Label lblAltura;
     @FXML
-    private ImageView imgVolver;
-    @FXML
-    private ImageView imgPokemon;
-    @FXML
     private Button btnAnterior;
     @FXML
     private Button btnSiguiente;
@@ -43,15 +39,20 @@ public class ControllerPokeCard implements Initializable {
     private int numeroAnterior = -1;
     private int numeroSiguiente = -1;
 
+    @FXML
+    private ImageView imgVolver;
+    @FXML
+    private ImageView imgPokemon;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         try {
-            URL icono = getClass().getResource("/assets/images0602/arrow-back.png");
+            URL icono = getClass().getResource("/assets/images0601/arrow-back.png");
             if (icono != null) {
                 imgVolver.setImage(new Image(icono.toExternalForm()));
             }
         } catch (Exception e) {
-            System.err.println("No se pudo cargar la imagen de retroceso.");
+            System.err.println("Error loading image");
             e.printStackTrace();
         }
     }
@@ -122,15 +123,15 @@ public class ControllerPokeCard implements Initializable {
 
     @FXML
     public void previous(ActionEvent evt) {
-        if (numeroAnterior != -1) {
-            loadPokemon(numeroAnterior);
+        if (this.numeroAnterior != -1) {
+            loadPokemon(this.numeroAnterior);
         }
     }
 
     @FXML
     public void next(ActionEvent evt) {
-        if (numeroSiguiente != -1) {
-            loadPokemon(numeroSiguiente);
+        if (this.numeroSiguiente != -1) {
+            loadPokemon(this.numeroSiguiente);
         }
     }
 
