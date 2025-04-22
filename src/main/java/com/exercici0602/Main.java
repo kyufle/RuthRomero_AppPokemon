@@ -20,6 +20,9 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) throws Exception {
 
+        AppData db = AppData.getInstance();
+        db.connect("./data/pokemons.sqlite");
+
         // Carrega la vista inicial des del fitxer FXML
         UtilsViews.parentContainer.setStyle("-fx-font: 14 arial;");
         UtilsViews.addView(getClass(), "ViewTaula", "/assets/viewPokeList.fxml");

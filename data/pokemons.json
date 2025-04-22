@@ -7,7 +7,7 @@
       "height": "0.7 m",
       "weight": "6.9 kg",
       "category": "Seed",
-      "image": "data/pokeImages/bulbasaur.png"
+      "image": "bulbasaur.png"
     },
     {
       "number": 2,
@@ -17,7 +17,7 @@
       "height": "1.0 m",
       "weight": "13.0 kg",
       "category": "Seed",
-      "image": "data/pokeImages/ivysaur.png"
+      "image": "ivysaur.png"
     },
     {
       "number": 3,
@@ -27,7 +27,7 @@
       "height": "2.0 m",
       "weight": "100.0 kg",
       "category": "Seed",
-      "image": "data/pokeImages/venusaur.png"
+      "image": "venusaur.png"
     },
     {
       "number": 4,
@@ -37,7 +37,7 @@
       "height": "0.6 m",
       "weight": "8.5 kg",
       "category": "Lizard",
-      "image": "data/pokeImages/charmander.png"
+      "image": "charmander.png"
     },
     {
       "number": 5,
@@ -47,7 +47,7 @@
       "height": "1.1 m",
       "weight": "19.0 kg",
       "category": "Flame",
-      "image": "data/pokeImages/charmeleon.png"
+      "image": "charmeleon.png"
     },
     {
       "number": 6,
@@ -57,7 +57,7 @@
       "height": "1.7 m",
       "weight": "90.5 kg",
       "category": "Flame",
-       "image": "data/pokeImages/charizard.png"
+       "image": "charizard.png"
     },
     {
       "number": 7,
@@ -67,7 +67,7 @@
       "height": "0.5 m",
       "weight": "9.0 kg",
       "category": "Tiny Turtle",
-       "image": "data/pokeImages/squirtle.png"
+       "image": "squirtle.png"
     },
     {
       "number": 8,
@@ -77,7 +77,7 @@
       "height": "1.0 m",
       "weight": "22.5 kg",
       "category": "Turtle",
-       "image": "data/pokeImages/wartortle.png"
+       "image": "wartortle.png"
     },
     {
       "number": 9,
@@ -87,7 +87,7 @@
       "height": "1.6 m",
       "weight": "85.5 kg",
       "category": "Shellfish",
-       "image": "data/pokeImages/blastoise.png"
+       "image": "blastoise.png"
     },
     {
       "number": 10,
@@ -97,7 +97,7 @@
       "height": "0.3 m",
       "weight": "2.9 kg",
       "category": "Worm",
-       "image": "data/pokeImages/caterpie.png"
+       "image": "caterpie.png"
     },
     {
       "number": 11,
@@ -107,7 +107,7 @@
       "height": "0.7 m",
       "weight": "9.9 kg",
       "category": "Cocoon",
-      "image": "data/pokeImages/metapod.png"
+      "image": "metapod.png"
     },
     {
       "number": 12,
@@ -117,7 +117,7 @@
       "height": "1.1 m",
       "weight": "32.0 kg",
       "category": "Butterfly",
-      "image": "data/pokeImages/butterfree.png"
+      "image": "butterfree.png"
     },
     {
       "number": 13,
@@ -127,7 +127,7 @@
       "height": "0.3 m",
       "weight": "3.2 kg",
       "category": "Hairy Bug",
-      "image": "data/pokeImages/weedle.png"
+      "image": "weedle.png"
     },
     {
       "number": 14,
@@ -137,7 +137,7 @@
       "height": "0.6 m",
       "weight": "10.0 kg",
       "category": "Cocoon",
-      "image": "data/pokeImages/kakuna.png"
+      "image": "kakuna.png"
     },
     {
       "number": 15,
@@ -147,7 +147,7 @@
       "height": "1.0 m",
       "weight": "29.5 kg",
       "category": "Poison Bee",
-       "image": "data/pokeImages/beedrill.png"
+       "image": "beedrill.png"
     },
     {
       "number": 25,
@@ -157,7 +157,7 @@
       "height": "0.4 m",
       "weight": "6.0 kg",
       "category": "Mouse",
-      "image": "data/pokeImages/pikachu.png"
+      "image": "pikachu.png"
     }    
 ]
   
